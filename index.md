@@ -55,7 +55,7 @@ We evaluated the LSH results based on the runtime of experiments with and withou
 ### XNLI results
 
 (All language columns are top 10 accuracy (%) for the given language)  
-Legend:  
+
 * AR: Arabic
 * BG: Bulgarian
 * DE: German
