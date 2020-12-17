@@ -1,12 +1,12 @@
 ## Abstract
 
-Question-answering through highlighting has limited direct applications in the real world, while question-entailment has direct applications such as producing a medical FAQ with a good database of question/answer pairs and a retrieval algorithm. For this project, question-entailment is defined as whether a hypothesis sentence is true given a premise sentence. We want to optimize cross-lingual performance, paying particular attention to low-resource languages. We also want to see if cosine-similarity is a good proxy for entailment due to it's low cost. 
+Question-answering through highlighting has limited direct applications in the real world, while question-entailment has direct applications such as producing a medical FAQ with a good database of question/answer pairs and a retrieval algorithm. For this project, question-entailment is defined as whether a hypothesis sentence is true given a premise sentence. We want to optimize cross-lingual performance, paying particular attention to low-resource languages. We also want to see if cosine-similarity is a good proxy for entailment due to it's low cost, and if locality sensitive hashing (LSH) can be used to decrease runtime. 
 
-Ultimately, we found that cosine-similarity was ineffective as a proxy for entailment despite its speed. Our accuracy with cosine-similarity was better than random guessing, but it was significantly below the baseline for entailment established by traditional approaches.
+Ultimately, we found that cosine-similarity was ineffective as a proxy for entailment despite its speed. Our accuracy with cosine-similarity was better than random guessing, but it was significantly below the baseline for entailment established by traditional approaches. However, we did find success with LSH.
 
 ## Problem Statement
 
-Our goal was to determine the efficacy of cosine-similarity as a proxy for question entailment.
+Our goals were to determine the efficacy of cosine-similarity as a proxy for question entailment and whether LSH significantly speeds up premise retrieval from memory with minimal accuracy loss.
 
 ## Related Work
 
@@ -24,27 +24,29 @@ As for data, we used the Stanford Natural Language Inference (SNLI) Corpus and C
 
 ## Methodology
 
-We first pruned each dataset down to just entailment pairs. Then, we fed the premise in each premise-hypothesis pairs into the XLM-RoBERTa model, extracted the last layer features, and hashed each feature vector into buckets with locality sensitive hashing. Following that, for each hypothesis sentence, we generated a feature vector and compared it with other premise feature vectors in the same bucket via cosine similarity. From that comparison, we generated top 1, top 5, and top 10 rankings for premises that could entail the hypothesis. Accuracy was determined based on if the premises in those rankings were actually the premises that entailed the hypothesis.
+We first pruned each dataset down to just entailment pairs. Then, we fed the premise in each premise-hypothesis pairs into the XLM-RoBERTa model, extracted the last layer features, and hashed each feature vector into buckets with LSH. Following that, for each hypothesis sentence, we generated a feature vector and compared it with other premise feature vectors in the same bucket via cosine similarity. From that comparison, we generated top 1, top 5, and top 10 rankings for premises that could entail the hypothesis. Accuracy was determined based on if the premises in those rankings were actually the premises that entailed the hypothesis. Additionally, the experiment runtime was used as a measure of effectiveness of LSH.
 
 ## Evaluation
 
-We evaluated our results based on the accuracy of the top 1, top 5, and top 10 premise rankings. Top 1 rankings were based on if the top ranked premise for a hypothesis was in fact the associated premise for that hypothesis. Top 5 and 10 rankings were similar, but had more leeway in that accuracy was determined based on if the correct premise for a hypothesis was in the top 5 or top 10 premises selected for that hypothesis, respectively. Ultimately, our determination of success was based on the comparison of those rankings to the baseline accuracy of the XLMR model.
+We evaluated our cosine-similarity results based on the accuracy of the top 1, top 5, and top 10 premise rankings. Top 1 rankings were based on if the top ranked premise for a hypothesis was in fact the associated premise for that hypothesis. Top 5 and 10 rankings were similar, but had more leeway in that accuracy was determined based on if the correct premise for a hypothesis was in the top 5 or top 10 premises selected for that hypothesis, respectively. Ultimately, our determination of cosine-similarity success was based on the comparison of those rankings to the baseline accuracy of the XLMR model.
+
+We evaluated the LSH results based on the runtime of experiments with and without LSH.
 
 ## Results
 
-| Experimental Setups  | Second Header | Second Header | Second Header | Second Header | Second Header | Second Header |
+| Experimental Setups  | Top 1 Accuracy (%) | Top 5 Accuracy (%) | Top 10 Accuracy (%) | Table Generation Time (s) | Experiment Runtime (s) | Dataset Size (pairs) |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| No hash  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| LSH_1_16  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| LSH_5_16  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| LSH_10_16  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| LSH_1_32  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| LSH_5_32  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| LSH_10_32  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| No hash  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| LSH_1_64  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| LSH_5_64  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| LSH_10_64  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| No hash  | 1.34  | 1.49  | 1.63  | 120.66  | 230.49  | 673  |
+| LSH_1_16  | 1.34  | 1.49  | 1.49  | 130.68  | 206.04  | 673  |
+| LSH_5_16  | 1.19  | 1.19  | 1.49  | 130.39  | 230.32  | 673  |
+| LSH_10_16  | 0.89  | 1.19  | 1.34  | 128.03  | 231.81  | 673  |
+| LSH_1_32  | 1.34  | 1.34  | 1.49  | 242.72  | 199.95  | 673  |
+| LSH_5_32  | 1.19  | 1.34  | 1.34  | 249.15  | 249.09  | 673  |
+| LSH_10_32  | 0.89  | 1.49  | 1.49  | 258.71  | 267.21  | 673  |
+| No hash  | 0.98  | 1.28  | 1.48  | 1193.64  | 2227.06  | 3368  |
+| LSH_1_64  | 0.27  | 0.30  | 0.30  | 1319.49  | 1032.78  | 3368  |
+| LSH_5_64  | 0.39  | 0.59  | 0.59  | 1332.03  | 1083.58  | 3368  |
+| LSH_10_64  | 0.48  | 0.59  | 0.62  | 1332.00  | 1075.54  | 3368  |
 
 ## Examples
 
