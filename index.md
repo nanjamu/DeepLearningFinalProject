@@ -34,6 +34,10 @@ We evaluated the LSH results based on the runtime of experiments with and withou
 
 ## Results
 
+### SNLI results
+
+(LSH_X_Y indicates locality sensitive hashing was used with X tables and Y hyperplanes.)
+
 | Experimental Setups  | Top 1 Accuracy (%) | Top 5 Accuracy (%) | Top 10 Accuracy (%) | Table Generation Time (s) | Experiment Runtime (s) | Dataset Size (pairs) |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | No hash  | 1.34  | 1.49  | 1.63  | 120.66  | 230.49  | 673  |
