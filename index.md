@@ -23,6 +23,8 @@ We first pruned each dataset down to just entailment pairs. Then, we fed the pre
 
 ## Evaluation
 
+We evaluated our results based on the accuracy of the top 1, top 5, and top 10 premise rankings. Ultimately, our determination of success was based on the comparison of those rankings to the baseline accuracy of the XLMR model.
+
 ## Results
 
 ## Examples
