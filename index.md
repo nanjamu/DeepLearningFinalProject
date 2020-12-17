@@ -1,6 +1,8 @@
 ## Abstract
 
-通过突出显示的问题回答在现实世界中的直接应用受到限制，而具有问题的问题则具有医学FAQ等直接应用，例如具有常见问题/答案对和检索算法的良好数据库。 我们要优化跨语言性能，尤其要注意低资源语言。 我们提出的方法是通过一组转换器来实现的，方法是通过预训练的XLM-RoBERTa对令牌进行编码，并通过SemBERT使用局部敏感的哈希方法确定编码推理，以进行检索，将假设问题仅分类为“包含”和“不含”类。 我们将评估SNLI，MNLI，MedQUAD和RQE数据集的推理准确性。
+Question-answering through highlighting has limited direct applications in the real world, while question-entailment has direct applications such as producing a medical FAQ with a good database of question/answer pairs and a retrieval algorithm. For this project, question-entailment is defined as whether a hypothesis sentence is true given a premise sentence. We want to optimize cross-lingual performance, paying particular attention to low-resource languages. We also want to see if cosine-similarity is a good proxy for entailment due to it's low cost.
+
+For our approach, we first fed each premise in a dataset of premise-hypothesis entailment sentence pairs into the XLM-RoBERTa model, extracted the last layer features, and hashed each feature vector into buckets with locality sensitive hashing. Following that, for each hypothesis sentence, we generated a feature vector and compared it with other premise feature vectors in the same bucket via cosine similarity. From that comparison, we generated top 1, top 5, and top 10 rankings for premises that could entail the hypothesis. Accuracy was determined based on if the premises in those rankings were actually the premises that entailed the hypothesis.
 
 ## Welcome to GitHub Pages
 
