@@ -6,6 +6,8 @@ Ultimately, we found that cosine-similarity was ineffective as a proxy for entai
 
 ## Problem Statement
 
+Our goal was to determine the efficacy of cosine-similarity as a proxy for question entailment.
+
 ## Related Work
 
 Papers that inspired us: (work in progress)
@@ -17,7 +19,7 @@ We used the SNLI, MNLI, and XNLI datasets. Each dataset had premise-hypothesis p
 
 ## Methodology
 
-We first fed each premise in a dataset of premise-hypothesis sentence pairs into the XLM-RoBERTa model, extracted the last layer features, and hashed each feature vector into buckets with locality sensitive hashing. Following that, for each hypothesis sentence, we generated a feature vector and compared it with other premise feature vectors in the same bucket via cosine similarity. From that comparison, we generated top 1, top 5, and top 10 rankings for premises that could entail the hypothesis. Accuracy was determined based on if the premises in those rankings were actually the premises that entailed the hypothesis.
+We first pruned each dataset down to just entailment pairs. Then, we fed the premise in each premise-hypothesis pairs into the XLM-RoBERTa model, extracted the last layer features, and hashed each feature vector into buckets with locality sensitive hashing. Following that, for each hypothesis sentence, we generated a feature vector and compared it with other premise feature vectors in the same bucket via cosine similarity. From that comparison, we generated top 1, top 5, and top 10 rankings for premises that could entail the hypothesis. Accuracy was determined based on if the premises in those rankings were actually the premises that entailed the hypothesis.
 
 ## Evaluation
 
