@@ -11,9 +11,15 @@ Our goal was to determine the efficacy of cosine-similarity as a proxy for quest
 ## Related Work
 
 Papers that inspired us: (work in progress)
-https://arxiv.org/pdf/1901.08079.pdf - a question entailment approach to question answering
-https://arxiv.org/pdf/1907.04286.pdf - medical NLI
-https://arxiv.org/pdf/1911.02116.pdf - XLM-R pretraining for cross-lingual performance
+https://arxiv.org/pdf/1901.08079.pdf - a question entailment approach to question answering  
+https://arxiv.org/pdf/1907.04286.pdf - medical NLI  
+https://arxiv.org/pdf/1911.02116.pdf - XLM-R pretraining for cross-lingual performance  
+
+Abacha et al. explored other approaches to question answering, acknowledging its increasing relevance due to the increasing numbers of similar questions posted online and its potential for building QA systems. Several question entailment approaches are detailed here, including but not limited to a logistic regression approach containing cosine similarity as a feature.
+
+Kearns et al. approached the Natural Language Inference task by predicting inference labels with features extracted from language models, hypothesizing that inference models can effectively capture the semantic information in the extracted embeddings.
+
+Conneau et al. revolutionized cross lingual approaches by taking the pretraining approach one step further. By pretraining at a very large scale, they achieved significant performance gains on XNLI, particularly with low resource languages.
 
 We used the SNLI, MNLI, and XNLI datasets. Each dataset had premise-hypothesis pairs classified as either entailment, contradiction, or neutral. SNLI and MNLI were similar in that they were both english datasets, but MNLI was larger with more genres and modes of communication than SNLI. XNLI added different languages to the mix, with each premise-hypothesis pair appearing 15 times in 15 different languages.
 
