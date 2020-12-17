@@ -1,8 +1,8 @@
 ## Abstract
 
-Question-answering through highlighting has limited direct applications in the real world, while question-entailment has direct applications such as producing a medical FAQ with a good database of question/answer pairs and a retrieval algorithm. For this project, question-entailment is defined as whether a hypothesis sentence is true given a premise sentence. We want to optimize cross-lingual performance, paying particular attention to low-resource languages. We also want to see if cosine-similarity is a good proxy for entailment due to it's low cost.
+Question-answering through highlighting has limited direct applications in the real world, while question-entailment has direct applications such as producing a medical FAQ with a good database of question/answer pairs and a retrieval algorithm. For this project, question-entailment is defined as whether a hypothesis sentence is true given a premise sentence. We want to optimize cross-lingual performance, paying particular attention to low-resource languages. We also want to see if cosine-similarity is a good proxy for entailment due to it's low cost. 
 
-We found that ...
+Ultimately, we found that cosine-similarity was fairly ineffective as a proxy for entailment despite it's speed. Our accuracy with cosine-similarity was better than random guessing, but it was significantly below the baseline for entailment established by traditional approaches.
 
 ## Problem Statement
 
