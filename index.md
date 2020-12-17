@@ -1,3 +1,7 @@
+## Abstract
+
+通过突出显示的问题回答在现实世界中的直接应用受到限制，而具有问题的问题则具有医学FAQ等直接应用，例如具有常见问题/答案对和检索算法的良好数据库。 我们要优化跨语言性能，尤其要注意低资源语言。 我们提出的方法是通过一组转换器来实现的，方法是通过预训练的XLM-RoBERTa对令牌进行编码，并通过SemBERT使用局部敏感的哈希方法确定编码推理，以进行检索，将假设问题仅分类为“包含”和“不含”类。 我们将评估SNLI，MNLI，MedQUAD和RQE数据集的推理准确性。
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/nanjamu/DeepLearningFinalProject/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
