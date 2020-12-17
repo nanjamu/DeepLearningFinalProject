@@ -81,6 +81,7 @@ Legend:
 | LSH_5_32  | 0.90  | 1.50  | 1.50  | 0.60  | 0.30  | 1.50  | 0.90  | 1.80  | 0.90  | 0.30  | 1.20  | 0.60  | 0.30  | 0.90  | 136.81  | 1477.36  | 334  |
 | LSH_10_32  | 0.90  | 0.90  | 2.10  | 1.50  | 0.60  | 0.60  | 0.60  | 1.20  | 0.60  | 1.50  | 0.30  | 0.90  | 1.80  | 1.50  | 137.09  | 1492.94  | 334  |
 
+From these results, we can see that cosine-similarity was very ineffective, as the accuracy percentages were extremely low. Typical accuracy for the SNLI and XNLI datasets would be at least 70%, and cosine-similarity did not come anywhere near that. On the other hand, LSH seemed to significantly decrease runtime, particularly when the dataset size used was larger. At a low number of pairs like 334 or 673, it was not as effective because it was largely unneeded, but when the number of pairs used was increased to 3368, LSH halved the experiment runtime.
 
 ## Examples
 
