@@ -8,7 +8,15 @@ Ultimately, we found that cosine-similarity was ineffective as a proxy for entai
 
 ## Related Work
 
+Papers that inspired us: (work in progress)
+https://arxiv.org/pdf/1901.08079.pdf - a question entailment approach to question answering
+https://arxiv.org/pdf/1907.04286.pdf - medical NLI
+https://arxiv.org/pdf/1911.02116.pdf - XLM-R pretraining for cross-lingual performance
+
+We used the SNLI, MNLI, and XNLI datasets. Each dataset had premise-hypothesis pairs classified as either entailment, contradiction, or neutral. SNLI and MNLI were similar in that they were both english datasets, but MNLI was larger with more genres and modes of communication than SNLI. XNLI added different languages to the mix, with each premise-hypothesis pair appearing 15 times in 15 different languages.
+
 ## Methodology
+
 We first fed each premise in a dataset of premise-hypothesis sentence pairs into the XLM-RoBERTa model, extracted the last layer features, and hashed each feature vector into buckets with locality sensitive hashing. Following that, for each hypothesis sentence, we generated a feature vector and compared it with other premise feature vectors in the same bucket via cosine similarity. From that comparison, we generated top 1, top 5, and top 10 rankings for premises that could entail the hypothesis. Accuracy was determined based on if the premises in those rankings were actually the premises that entailed the hypothesis.
 
 ## Evaluation
