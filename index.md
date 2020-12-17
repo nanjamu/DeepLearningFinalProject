@@ -104,14 +104,13 @@ Cosine-similarity rankings:
 | 10  | A man is throwing something into the road.  | 0.9835  |
 
 As can be seen in the rankings, premises are assigned a score based on how likely they are to entail the hypothesis, and their ranks are determined by that score.
-&nbsp;
   
 The following is an example of a top 10 ranking by cosine-similarity given an XNLI premise and hypothesis.  
-Hypothesis: أردنا إنقاذ شيء واحد أكثر من الباقي.
-Language: AR
-Corresponding english hypothesis: That was the primary thing we wanted to save since there wasn't any way to dump a 20-megaton H-bomb off a 30, a C124.
-Correct premise: We wanted to save one thing more than the rest.
-Cosine-similarity rankings:
+Hypothesis: أردنا إنقاذ شيء واحد أكثر من الباقي.  
+Language: AR  
+Corresponding english hypothesis: That was the primary thing we wanted to save since there wasn't any way to dump a 20-megaton H-bomb off a 30, a C124.  
+Correct premise: We wanted to save one thing more than the rest.  
+Cosine-similarity rankings:  
 
 | Ranking  | Premise | Score |
 | ------------- | ------------- | ------------- |
