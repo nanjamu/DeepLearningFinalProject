@@ -92,7 +92,7 @@ Cosine-similarity rankings:
 
 | Ranking  | Premise | Score |
 | ------------- | ------------- | ------------- |
-| 1  | A man is eating food next to a child on a bench.  | 0.9911  |
+| 1  | **A man is eating food next to a child on a bench.**  | 0.9911  |
 | 2  | An Asian man makes faces for the camera.  | 0.9895  |
 | 3  | A man walks by a building at night.  | 0.9882  |
 | 4  | An medical worker examines a young girl.  | 0.9868  |
@@ -122,7 +122,7 @@ Cosine-similarity rankings:
 | 6  | The data presented in this appendix are based on the demographic data for the 5-Digit ZIP Code for each route in a quartile.  | 0.0913  |
 | 7  | Although Rock 'n' Roll was racing down the fast lane like a candy apple VETTE, FOREVER PLAID believed in their music.  | 0.0872  |
 | 8  | In a sense, it seems illogical that we have retained the historic spellings for Spenser's works yet use modern spellings for the titles of plays by his contemporary, William Shakespeare.  | 0.0854  |
-| 9  | We wanted to save one thing more than the rest.  | 0.0841  |
+| 9  | **We wanted to save one thing more than the rest.**  | 0.0841  |
 | 10  | But I can't forget that when I was no better than a slave in your uncle's household in Barbados, ye used me with a certain kindness.  | 0.0582  |
 
 In the results from the XNLI example, we can see that the correct premise was in the top 10 premises for the hypothesis, but was ranked 9th. Additionally, it was given a very low score relative to the top 2 premises, showing the limitations of just using cosine-similarity.
