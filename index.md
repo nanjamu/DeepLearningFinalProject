@@ -23,7 +23,7 @@ We first pruned each dataset down to just entailment pairs. Then, we fed the pre
 
 ## Evaluation
 
-We evaluated our results based on the accuracy of the top 1, top 5, and top 10 premise rankings. Ultimately, our determination of success was based on the comparison of those rankings to the baseline accuracy of the XLMR model.
+We evaluated our results based on the accuracy of the top 1, top 5, and top 10 premise rankings. Top 1 rankings were based on if the top ranked premise for a hypothesis was in fact the associated premise for that hypothesis. Top 5 and 10 rankings were similar, but had more leeway in that accuracy was determined based on if the correct premise for a hypothesis was in the top 5 or top 10 premises selected for that hypothesis, respectively. Ultimately, our determination of success was based on the comparison of those rankings to the baseline accuracy of the XLMR model.
 
 ## Results
 
