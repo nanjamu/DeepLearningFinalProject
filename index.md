@@ -20,7 +20,7 @@ Kearns et al. approached the Natural Language Inference task by predicting infer
 
 Conneau et al. revolutionized cross lingual approaches by taking the pretraining approach one step further. By pretraining at a very large scale, they achieved significant performance gains on XNLI, particularly with low resource languages.
 
-As for data, we used the Stanford Natural Language Inference (SNLI) Corpus, Multi-Genre NLI (MNLI) Corpus, and Cross-Lingual NLI (XNLI) Corpus. Each dataset had premise-hypothesis pairs classified as either entailment, contradiction, or neutral. SNLI and MNLI were similar in that they were both english datasets, but MNLI was larger with more genres and modes of communication than SNLI. XNLI added different languages to the mix, with each premise-hypothesis pair appearing 15 times in 15 different languages.
+As for data, we used the Stanford Natural Language Inference (SNLI) Corpus and Cross-Lingual NLI (XNLI) Corpus. Each dataset had premise-hypothesis pairs classified as either entailment, contradiction, or neutral. SNLI was an english dataset with manually labeled premise-hypothesis pairs classified as either entailment, contradiction, or neutral. XNLI added different languages to the mix, with each premise-hypothesis pair appearing 15 times in 15 different languages.
 
 ## Methodology
 
