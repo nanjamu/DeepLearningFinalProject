@@ -83,6 +83,48 @@ We evaluated the LSH results based on the runtime of experiments with and withou
 
 From these results, we can see that cosine-similarity was very ineffective, as the accuracy percentages were extremely low. Typical accuracy for the SNLI and XNLI datasets would be at least 70%, and cosine-similarity did not come anywhere near that. On the other hand, LSH seemed to significantly decrease runtime, particularly when the dataset size used was larger. At a low number of pairs like 334 or 673, it was not as effective because it was largely unneeded, but when the number of pairs used was increased to 3368, LSH halved the experiment runtime.
 
-## Examples
+## Example
+
+The following is an example of a top 10 ranking by cosine-similarity given an SNLI premise and hypothesis.  
+Hypothesis: Man eating on a bench near a child.  
+Correct premise: A Man is eating food next to a child on a bench.
+Cosine-similarity rankings:
+
+| Ranking  | Premise | Score |
+| ------------- | ------------- | ------------- |
+| 1  | A man is eating food next to a child on a bench.  | 0.9911  |
+| 2  | An Asian man makes faces for the camera.  | 0.9895  |
+| 3  | A man walks by a building at night.  | 0.9882  |
+| 4  | An medical worker examines a young girl.  | 0.9868  |
+| 5  | Tourists waiting outside of a home to visit.  | 0.9850  |
+| 6  | A woman lowering ballast on a boat.  | 0.9848  |
+| 7  | Uniformed group walks down a street.  | 0.9846  |
+| 8  | A woman poses for a picture with a child.  | 0.9841  |
+| 9  | A man and a Woman cutting dough.  | 0.9841  |
+| 10  | A man is throwing something into the road.  | 0.9835  |
+
+As can be seen in the rankings, premises are assigned a score based on how likely they are to entail the hypothesis, and their ranks are determined by that score.
+
+The following is an example of a top 10 ranking by cosine-similarity given an XNLI premise and hypothesis.  
+Hypothesis: أردنا إنقاذ شيء واحد أكثر من الباقي.
+Language: AR
+Corresponding english hypothesis: That was the primary thing we wanted to save since there wasn't any way to dump a 20-megaton H-bomb off a 30, a C124.
+Correct premise: We wanted to save one thing more than the rest.
+Cosine-similarity rankings:
+
+| Ranking  | Premise | Score |
+| ------------- | ------------- | ------------- |
+| 1  | Sure, then, I'll be telling ye.  | 0.9635  |
+| 2  | Russia is facing increasing challenges in the Chechen war.  | 0.9627  |
+| 3  | If you find any Peculiar (Missouri) names or ones that comes as a Surprise (Nebraska), just Jot 'Em Down (Texas) Safely (Tennessee)--unless, of course, they are Errata (Mississippi).  | 0.1551  |
+| 4  | Walcott trained to be a painter--like his schoolteacher father, who died when Walcott was a baby--and The Bounty is his most painterly book, in method and theme.  | 0.0973  |
+| 5  | The Move to San Diego By February 4, Hazmi and Mihdhar had come to San Diego from Los Angeles, possibly driven by Mohdar Abdullah.  | 0.0926  |
+| 6  | The data presented in this appendix are based on the demographic data for the 5-Digit ZIP Code for each route in a quartile.  | 0.0913  |
+| 7  | Although Rock 'n' Roll was racing down the fast lane like a candy apple VETTE, FOREVER PLAID believed in their music.  | 0.0872  |
+| 8  | In a sense, it seems illogical that we have retained the historic spellings for Spenser's works yet use modern spellings for the titles of plays by his contemporary, William Shakespeare.  | 0.0854  |
+| 9  | We wanted to save one thing more than the rest.  | 0.0841  |
+| 10  | But I can't forget that when I was no better than a slave in your uncle's household in Barbados, ye used me with a certain kindness.  | 0.0582  |
+
+In the results from the XNLI example, we can see that the correct premise was in the top 10 premises for the hypothesis, but was ranked 9th. Additionally, it was given a very low score relative to the top 2 premises, showing the limitations of just using cosine-similarity.
 
 ## Video
