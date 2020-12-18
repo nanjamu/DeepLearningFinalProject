@@ -105,7 +105,7 @@ Cosine-similarity rankings:
 | 9  | A man and a Woman cutting dough.  | 0.9841  |
 | 10  | A man is throwing something into the road.  | 0.9835  |
 
-As can be seen in the rankings, premises are assigned a score based on how likely they are to entail the hypothesis, and their ranks are determined by that score.
+As can be seen in the rankings, premises are assigned a score with cosine-similarity based on how likely they are to entail the hypothesis, and their ranks are determined by that score.
   
 The following is an example of a top 10 ranking by cosine-similarity given an XNLI premise and hypothesis.  
 Hypothesis: أردنا إنقاذ شيء واحد أكثر من الباقي.  
