@@ -129,7 +129,7 @@ Cosine-similarity rankings:
 
 In the results from the XNLI example, we can see that the correct premise was in the top 10 premises for the hypothesis, but was ranked 9th. Additionally, it was given a very low score relative to the top 2 premises, showing the limitations of just using cosine-similarity.
 
-## Further Thoughts
+## Conclusion
 
 In summary, cosine similarity by itself is not an effective determinant of entailment. The results show that the accuracy achieved through cosine similarity is significantly below the results achieved by baseline XLM-R with traditional inference prediction methods. On the other hand, Locality Sensitive Hashing does seem like an effective way to cut down on runtime, given that the testing run time of SNLI was cut down by half when ran with the full entailment only dataset. We believe that the differences in retrieval speed will only be amplified by the usage of a large scale database such as Elasticsearch, as LSH buckets can be indexed in ways favorable for retrieval of the entire bucket, compared to retrieving the results one by one without hashing.  
 
