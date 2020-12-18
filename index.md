@@ -136,3 +136,9 @@ In summary, cosine similarity by itself is not an effective determinant of entai
 To improve accuracy, we believe that XLM-R will need to be fine tuned so that the last layer features can encode more semantic information relevant to determining entailment. Results can also be ranked by a logistic regression with linguistic features (as described by Abacha et al.), or by a separate inference model, such as AllenNLP's Enhanced Sequential Inference Model (as described by Kearns et al.)
 
 ## Video
+
+https://youtu.be/Agr9l0osP7w
+
+## Colab Demo
+
+https://colab.research.google.com/drive/1bAaVMxtoiaaRXarWekgzOPmLa1ffuQwG?usp=sharing
