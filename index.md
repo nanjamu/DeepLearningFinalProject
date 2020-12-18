@@ -89,7 +89,7 @@ From these results, we can see that cosine-similarity was very ineffective, as t
 
 The following is an example of a top 10 ranking by cosine-similarity given an SNLI premise and hypothesis.  
 Hypothesis: Man eating on a bench near a child.  
-Correct premise: A Man is eating food next to a child on a bench.
+Correct premise: A Man is eating food next to a child on a bench.  
 Cosine-similarity rankings:
 
 | Ranking  | Premise | Score |
